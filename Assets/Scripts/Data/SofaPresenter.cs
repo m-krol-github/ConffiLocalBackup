@@ -10,6 +10,7 @@ namespace Conffi.Data
 {
     public sealed class SofaPresenter : MonoBehaviour
     {
+        [SerializeField] private DebugGrid grid;
         [Space]
         [SerializeField] private PoolManager pooling;
         [Space]
@@ -17,11 +18,10 @@ namespace Conffi.Data
         [SerializeField] private CornerSegment cornerL;
         [SerializeField] private CornerSegment cornerR;
         
-        [SerializeField] private List<Segment> pooledMid = new();
-        [SerializeField] private List<CornerSegment> pooledSides = new();
-        [SerializeField] private List<MeshRenderer> pillowsMeshes = new();
-        [SerializeField] private List<Vector2> posList = new();
-        [SerializeField] private DebugGrid grid;
+        private List<Segment> pooledMid = new();
+        private List<CornerSegment> pooledSides = new();
+        private List<MeshRenderer> pillowsMeshes = new();
+        private List<Vector2> posList = new();
         
         private bool isVisible;
 
@@ -42,7 +42,6 @@ namespace Conffi.Data
                 {
                     mid = pooling.UseObject(middle, pos, Quaternion.identity);
                     pooledMid.Add(mid.GetComponent<Segment>());
-                    mid.GetComponent<Segment>().GetGrid(grid);
                 }
                 else if (preset.Elements[i].ElementType == ElementType.Left)
                 {
@@ -57,32 +56,6 @@ namespace Conffi.Data
                 
                 //
                 posList.Add(mid.transform.position);
-                //
-                
-                for (int j = 0; j < grid.cellGO.Count; j++)
-                {
-                    if (grid.cellGO[j].transform.position == mid.transform.position)
-                    {
-                        GridCell cell = grid.cellGO[j].GetComponent<GridCell>(); 
-                        
-                        cell.SetColor(Color.red);
-                    }
-                    else if (grid.cellGO[j].transform.position == mid.transform.position + Vector3.forward)
-                    {
-                        GridCell cell = grid.cellGO[j].GetComponent<GridCell>(); 
-                        
-                        if(cell.IsCellOccupied == false)
-                            cell.SetColor(Color.green);
-                    }
-                }
-
-
-                for (int j = 0; j < pooledSides.Count; j++)
-                {
-                    pooledSides[j].SetSide(preset.Elements[i].ElementSideType);
-                }
-                
-                pillowsMeshes.Add(mid.Pillow.GetComponent<MeshRenderer>());
             }
             
             isVisible = true;
@@ -99,6 +72,10 @@ namespace Conffi.Data
                 pooling.ReturnObject(pooledSides[i].gameObject,0);
             }
             
+            for (int i = 0; i < pooledMid.Count; i++)
+            {
+                pooling.ReturnObject(pooledMid[i].gameObject,0);
+            }
             
             pooledSides.Clear();
             pooledMid.Clear();
