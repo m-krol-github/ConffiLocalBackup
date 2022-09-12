@@ -7,7 +7,8 @@ namespace Conffi.Item.Accessories
     [System.Serializable]
     public sealed class Pillow : MonoBehaviour
     {
-        [SerializeField] private GameObject pillowPrefab;
+        [field: SerializeField] public MeshRenderer pillowRenderer { get; private set; }
+        
         [SerializeField] private Vector3 pillowPrefabPosition;
     }
 }

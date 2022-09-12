@@ -38,7 +38,7 @@ namespace Conffi.UI
 
             clearElementsBtn.onClick.AddListener(() =>
             {
-                _sofaPresenter.Clear();
+                _sofaPresenter.ClearBeforeActivate();
             });
         }
     }

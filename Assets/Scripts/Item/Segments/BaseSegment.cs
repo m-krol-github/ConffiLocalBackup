@@ -9,27 +9,22 @@ using UnityEngine;
 
 namespace Conffi.Item
 {
-    public sealed class Segment : BaseItem
+    public sealed class BaseSegment : BaseItem
     {
-        [SerializeField] private Material greenAdd;
-        [SerializeField] private Material redAdd;
-        
-        [SerializeField] private DebugGrid grid;
-        [SerializeField] private SofaPresenter polling;
+        [SerializeField] private SegmentsGrid grid;
         
         private Vector3 up = Vector3.forward;
         private Vector3 down = Vector3.back;
         private Vector3 left = Vector3.left;
         private Vector3 right = Vector3.right;
         
-        private Segment segment;
+        private BaseSegment _baseSegment;
         
         protected override void Awake()
         {
             base.Awake();
 
-            segment = this;
-            
+            _baseSegment = this;
         }
 
         public override void ShowPillow(bool show)
@@ -37,7 +32,7 @@ namespace Conffi.Item
             base.ShowPillow(show);
         }
 
-        public void GetGrid(DebugGrid grid)
+        public void GetGrid(SegmentsGrid grid)
         {
             this.grid = grid;
             CheckSides();

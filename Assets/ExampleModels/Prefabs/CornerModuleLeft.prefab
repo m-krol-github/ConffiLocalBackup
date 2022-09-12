@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7143929919450094627
 Transform:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409c4f60cb6b3d54b9be8d8b2c06ffc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pillowPrefab: {fileID: 0}
+  <pillowRenderer>k__BackingField: {fileID: 5102688160524735909}
   pillowPrefabPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &9001147418730540399
 GameObject:
@@ -123,13 +123,14 @@ GameObject:
   - component: {fileID: 8620363918737143765}
   - component: {fileID: 4615755151995893872}
   - component: {fileID: 7487941998225394874}
+  - component: {fileID: -5093709402683099996}
   m_Layer: 0
   m_Name: CornerModuleLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8620363918737143765
 Transform:
   m_ObjectHideFlags: 0
@@ -196,3 +197,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5093709402683099996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001147418730540399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c591bfe3cf5acb4594dfcef7ef948ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pillow: {fileID: 3148310614205198233}
+  renderer: {fileID: 0}

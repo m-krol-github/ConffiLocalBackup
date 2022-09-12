@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409c4f60cb6b3d54b9be8d8b2c06ffc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pillowPrefab: {fileID: 0}
+  <pillowRenderer>k__BackingField: {fileID: 3509742058575351361}
   pillowPrefabPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &7362418286649470684
 GameObject:
@@ -212,7 +212,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pillow: {fileID: 1493533794762476696}
   renderer: {fileID: 0}
-  greenAdd: {fileID: 0}
-  redAdd: {fileID: 0}
   grid: {fileID: 0}
-  polling: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1528418392755068113}
   - component: {fileID: 7662014105846172873}
   m_Layer: 0
-  m_Name: CornerModuleRight
+  m_Name: CornerModuleRight 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

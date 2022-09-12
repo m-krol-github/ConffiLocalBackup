@@ -5,10 +5,12 @@ using UnityEngine;
 
 namespace Conffi.Item.Pool
 {
-    public class PoolManager : MonoBehaviour
+    public sealed class PoolManager : MonoBehaviour
     {
         public PoolItem[] poolItems;
 
+        [SerializeField] private Transform poolParent;
+        
         private readonly Dictionary<int, Queue<BaseItem>> poolQueue = new();
         private readonly Dictionary<int, bool> growable = new();
         private readonly Dictionary<int, Transform> parents = new();
@@ -20,12 +22,12 @@ namespace Conffi.Item.Pool
 
         private void PoolInit()
         {
-            GameObject poolGroup = new GameObject("Pool Group");
+            //GameObject poolGroup = new GameObject("Pool Group");
 
             for (int i = 0; i < poolItems.Length; i++)
             {
-                GameObject uniquePool = new GameObject("Pool Group");
-                uniquePool.transform.SetParent(poolGroup.transform);
+                GameObject uniquePool = new GameObject("Pool " + poolItems[i].itemName);
+                uniquePool.transform.SetParent(poolParent.transform);
 
                 int objectID = poolItems[i].poolItem.GetInstanceID();
                 poolItems[i].poolItem.gameObject.SetActive(false);
@@ -50,18 +52,11 @@ namespace Conffi.Item.Pool
 
             if (temp.gameObject.activeInHierarchy)
             {
-                if (growable[objID])
-                {
-                    poolQueue[objID].Enqueue(temp);
-                    temp = Instantiate(obj, parents[objID]);
-                    temp.transform.position = pos;
-                    temp.transform.rotation = rot;
-                    temp.gameObject.SetActive(true);
-                }
-                else
-                {
-                    temp = null;
-                }
+                poolQueue[objID].Enqueue(temp);
+                temp = Instantiate(obj, parents[objID]);
+                temp.transform.position = pos;
+                temp.transform.rotation = rot;
+                temp.gameObject.SetActive(true);
             }
             else
             {

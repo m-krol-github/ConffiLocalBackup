@@ -5,7 +5,8 @@ namespace Conffi.Data
         Left,
         Right,
         Middle,
-        Corner,
+        CornerLeft,
+        CornerRight,
         Pouf
     }
     

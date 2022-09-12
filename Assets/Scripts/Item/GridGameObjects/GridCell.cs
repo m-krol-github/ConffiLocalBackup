@@ -11,7 +11,7 @@ namespace Conffi.Item
     {
         [field: SerializeField] public bool IsCellOccupied { get; private set; }
 
-        [SerializeField] private DebugGrid grid;
+        [SerializeField] private SegmentsGrid grid;
         [SerializeField] private SofaPresenter _presenter;
         [SerializeField] private GameObject callCube;
         [SerializeField] private Material greenColor;
@@ -25,7 +25,7 @@ namespace Conffi.Item
             SetColor(Color.clear);
         }
 
-        public void InitCell(DebugGrid grid, SofaPresenter presenter)
+        public void InitCell(SegmentsGrid grid, SofaPresenter presenter)
         {
             this.grid = grid;
             this._presenter = presenter;
@@ -58,6 +58,12 @@ namespace Conffi.Item
             {
                 renderer.material = greenColor;
             }
+        }
+
+        public void ResetCellProperty()
+        {
+            IsCellOccupied = false;
+            renderer.material = transparentColor;
         }
 
         private void CheckNeighbours()

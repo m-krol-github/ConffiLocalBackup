@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2090132505506818576}
   - component: {fileID: 7570900170263131131}
   m_Layer: 0
-  m_Name: SideModuleRight
+  m_Name: SideModuleRight 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a003d44f9400641828d6786f810426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pillow: {fileID: 962847519785369812}
-  renderer: {fileID: 2090132505506818576}
+  pillows: {fileID: 1939684074039175155}
   fatSide: {fileID: 8199822289501376699}
   thinSide: {fileID: 5663667296093066273}
 --- !u!1 &1939684074039175155
@@ -115,7 +114,6 @@ GameObject:
   - component: {fileID: 5064735169785090532}
   - component: {fileID: 8660249966910957244}
   - component: {fileID: 8898794079432333959}
-  - component: {fileID: 962847519785369812}
   m_Layer: 0
   m_Name: Pillows
   m_TagString: Untagged
@@ -201,20 +199,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &962847519785369812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939684074039175155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 409c4f60cb6b3d54b9be8d8b2c06ffc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <pillowRenderer>k__BackingField: {fileID: 8660249966910957244}
-  pillowPrefabPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &5663667296093066273
 GameObject:
   m_ObjectHideFlags: 0
